@@ -1,0 +1,4 @@
+[
+  {"id": "maya", "name": "Maya", "age": 34, "eye_color": "brown", "interests": ["tea", "climbing", "jazz"]},
+  {"id": "nina", "name": "Nina", "age": 33, "eye_color": "blue", "interests": ["tea", "cooking", "photography"]}
+]
