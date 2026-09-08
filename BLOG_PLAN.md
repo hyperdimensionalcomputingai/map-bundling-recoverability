@@ -68,5 +68,5 @@ Use the existing [report](artifacts/demo/REPORT.md) as supporting evidence withi
 
 - Conclude that bundling preserves evidence we can address, compare, and compose; its usefulness does not depend on reversing every encoding step into the original object.
 - Raise the next question naturally: how much can we superimpose before the correct information becomes difficult to distinguish from interference?
-- Point to [HYP-84: Measure MAP-I bundling capacity limit](https://linear.app/hyperdimensionalcomputing/issue/HYP-84/research-blog-measure-map-i-bundling-capacity-limit): a separate experiment will vary facts per bundle and dimensionality, measuring constituent readout under nominal and ordinal value encodings.
+- Introduce a separate capacity experiment that will vary facts per bundle and dimensionality, measuring constituent readout under nominal and ordinal value encodings.
 - Frame that follow-up as a study of internal bundling pressure, not database size or ANN speed. It will measure recovery curves rather than promise a universal capacity cutoff; its structured-value setup will not by itself establish a capacity limit for Nomic semantic queries.

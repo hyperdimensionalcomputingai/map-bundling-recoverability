@@ -1,6 +1,6 @@
 # What can we recover from a bundled hypervector?
 
-Implementation plan for HYP-80. Revised 2026-09-07 for semantic queries with local Nomic embeddings.
+Implementation specification for MAP bundling recoverability. Revised 2026-09-07 for semantic queries with local Nomic embeddings.
 
 ## Outcome and scope
 
@@ -16,8 +16,6 @@ Use the existing package under `src/experiment/` for shared helpers, with ordina
 
 ## Sources and the change in approach
 
-- [HYP-80](https://linear.app/hyperdimensionalcomputing/issue/HYP-80/blog-what-can-we-recover-from-a-bundled-hypervector) supplies Maya/Nina and the binding, bundling, partial-query, and subtraction progression. David Hughes's September 2 comment asks for explicit explanations of crosstalk, argmax, and near orthogonality.
-- [David's shared conversation](https://chatgpt.com/share/6a977f1f-2798-83ea-98de-2050883270ef) motivates the questions. Its symbolic cleanup dictionary is useful for explaining one possible readout mechanism, but is no longer the main retrieval design. Its example scores are not measurements.
 - [The preceding HRR/MAP study](https://hyperdimensionalcomputing.ai/blog/hrr-map-similarity/) measured encoder-defined similarity and neighbor retrieval in a controlled fixture. This follow-up adds semantic queries and explicit role probing; the previous study did not benchmark unbinding accuracy or establish universal algebra equivalence.
 - [Achlioptas, Database-friendly random projections: Johnson-Lindenstrauss with binary coins (2003)](https://www.sciencedirect.com/science/article/pii/S0022000003000254), with an accessible [conference paper](https://users.math.msu.edu/users/iwenmark/Teaching/MTH995/Papers/JL_Database_Subgaussian.pdf), grounds the dense independent ±1 projection and output-dimension scaling. Its linear distance-preservation result does not automatically cover sign quantization.
 - [Nomic's model card](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5) documents retrieval task prefixes. [Ollama's embedding API](https://docs.ollama.com/api/embed) accepts batched text and can reject truncation. Pin the actual local model identity rather than inferring its exact upstream revision from a mutable tag.
@@ -148,7 +146,7 @@ cos(r ⊗ s, h) = cos(s, r ⊗ h)
 
 The role flips coordinates, preserves norms, and is self-inverse. Thus probing an existing record and searching complete records with a role-bound semantic cue implement the same score. A probe does not become a readable string, and no operation here decodes an embedding into original text.
 
-### David's argmax question in this design
+### How argmax works in this design
 
 A single semantic query against Maya needs one score, not an argmax over possible labels. To find the best person, compute a score for each stored record and select its ID:
 
@@ -166,7 +164,7 @@ winner_person_id = person_ids[winner_index]
 
 Show all scores for the two-person fixture. A top result exists even for a poor query; neither argmax nor cosine is a confidence probability. Do not impose a threshold derived for independent random candidates on semantic embeddings. Exact field text, if displayed, comes from source metadata and is labeled as such. A traditional dictionary cleanup example may be mentioned in the report for contrast, but is not a second implementation track.
 
-### David's near-orthogonality question
+### Why near orthogonality helps readout
 
 Conditioned on fixed bipolar semantic values a and b, binding one with an independent random role mask makes its dot/D against the other have mean zero and variance `1/D` over the mask. The role mask makes cross-role alignment small on average; it does not erase the residual vector. For matching roles, multiplication cancels and preserves the full value-to-query similarity.
 
