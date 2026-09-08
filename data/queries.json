@@ -1,0 +1,15 @@
+[
+  {"id": "jazz", "role": "interest", "text": "jazz"},
+  {"id": "music", "role": "interest", "text": "music"},
+  {"id": "lounge_music", "role": "interest", "text": "lounge music"},
+  {"id": "r_and_b", "role": "interest", "text": "R&B"},
+  {"id": "tea", "role": "interest", "text": "tea"},
+  {"id": "rock_climbing", "role": "interest", "text": "rock climbing"},
+  {"id": "preparing_meals", "role": "interest", "text": "preparing meals"},
+  {"id": "taking_photographs", "role": "interest", "text": "taking photographs"},
+  {"id": "aircraft_maintenance", "role": "interest", "text": "aircraft maintenance"},
+  {"id": "brown_eyes", "role": "eye_color", "text": "brown eyes"},
+  {"id": "blue_eyes", "role": "eye_color", "text": "blue eyes"},
+  {"id": "age_34", "role": "age", "text": "34 years old"},
+  {"id": "age_33", "role": "age", "text": "33 years old"}
+]
